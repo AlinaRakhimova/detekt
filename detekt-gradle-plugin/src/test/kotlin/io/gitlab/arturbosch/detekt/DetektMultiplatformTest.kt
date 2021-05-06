@@ -137,7 +137,9 @@ class DetektMultiplatformTest : Spek({
 
     describe(
         "multiplatform projects - Android target",
-        skip = if (isAndroidSdkInstalled()) Skip.No else Skip.Yes("No android sdk.")
+        skip = if (!isAndroidSdkInstalled()) Skip.Yes("No android sdk.")
+        else if (getJdkVersion() >= 16) Skip.Yes("Android 4.1.2 & 4.2.0 don't run on JDK 16 or higher")
+        else Skip.No
     ) {
         val gradleRunner = setupProject {
             addSubmodule(
