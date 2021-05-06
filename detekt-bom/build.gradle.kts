@@ -9,6 +9,7 @@ dependencies {
         api(libs.spek.runner)
         api(libs.reflections)
         api(libs.mockk)
+        api(libs.byteBuddy)
         api(libs.junitLauncher)
         api(libs.snakeyaml)
         api(libs.jcommander)
